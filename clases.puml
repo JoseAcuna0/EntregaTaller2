@@ -1,0 +1,63 @@
+@startuml
+left to right direction
+skin rose
+
+Class Main{
+- iniciarSesion(Sistema sistema): void
+- menuPrincipal(Sistema sistema): void
+- menuPrestamo(Sistema sistema): void
+- editarInformacion(Sistema sistema): void
+- menuCalificar(Sistema sistema): void
+- cambiarContrasenia(Sistema sistema): void
+- editarCorreo(Sistema sistema): void
+----
++ main(String[] args): void
+}
+
+Class Libro{
+-titulo: String
+-autor: String
+-categoria: String
+-isbn: String
+-calificacion: String
+----
++ Libro(isbn: String, titulo: String, autor: String, categoria: String, calificacion: String)
++get's()
+}
+
+Class Socio{
+-Nombre: String
+-Apellido: String
+-Numero de socio: int
+-Correo: String
+-Contrasenia String
+-librosEnPrestamo: []
+-CantidadMaxima: int
+----
++ Socio(Nombre: String, Apellido: String, Correo: String, Numero de socio: int, Contrasenia String)
++agregarLibro(Libro: libro): void
++get's()
+}
+
+Class Sistema{
+-socios: Socio[]
+-libros: Libro[]
+-socio: Socio
+-cargarInformacion(): void
+-guardarInformacion(): void
+-buscarLibro(String isbn): Libro
+----
++ Sistema()
++ iniciarSession(int numeroDeSocio, String contrasenia): void
++ cerrarSession(): void
++ realizarPrestamoLibro(String isbn): void
++ calificarLibro(String isbn, String calificacion): void
++ obtegerCatalogoLibros(): String
++ obtenerDatosSocioLogeado(): String
+
+}
+
+Main --> Sistema: Tiene
+Sistema--> Socio
+Sistema--> Libro
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+left to right direction
+skin rose
+entity Sistema{
+Libros
+Socios
+}
+
+entity Libros{
+Titulo
+Autor
+Categoria
+isbn
+calificacion
+}
+
+entity Socio{
+Nombre
+Apellido
+Numero de socio
+Correo
+Contrasenia
+}
+
+
+Sistema -- Libros: Tiene >
+Sistema -- Socio: Tiene >
+Socio -- Libros: Puede tomar prestado >
+@enduml
